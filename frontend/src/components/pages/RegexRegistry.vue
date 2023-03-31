@@ -5,7 +5,7 @@
             </UniversalInput>
         </div>
         <div v-if="tags" class="flex flex-wrap justify-center">
-            <UniversalTag v-for="tag in tags" :key="tag.id" :tag="tag.name"></UniversalTag>
+            <UniversalTag v-for="tag in tags" :key="tag.id" :tag="tag.name" @click="setFilter(tag)"></UniversalTag>
         </div>
         <div class="flex flex-wrap justify-center mt-10">
 
@@ -22,8 +22,14 @@ import UniversalInput from '../UI/UniversalInput.vue';
 import UniversalTag from '../UI/UniversalTag.vue';
 const data = ref(null)
 const tags = ref(null)
-const getData = async () => {
-    const response = await fetch(import.meta.env.VITE_API + 'regex/')
+const regexApi = ref('regex/')
+const filter = ref([])
+const getData = async (filter) => {
+    console.log(filter.value)
+    if (filter.value.length > 0) {
+        regexApi.value = 'regex/?tags=' + filter.value.map(tag => { return tag.id })
+    }
+    const response = await fetch(import.meta.env.VITE_API + regexApi.value)
     if (!response.ok) {
         throw Error('Cannot pull repository from API')
     }
@@ -35,8 +41,11 @@ const getTags = async () => {
         throw Error('Cannot pull tags from API')
     }
     tags.value = await response.json()
-
 }
-watchEffect(getData)
+const setFilter = (item) => {
+    filter.value.push(item)
+}
+
+watchEffect(() => getData(filter))
 watchEffect(getTags)
 </script>
