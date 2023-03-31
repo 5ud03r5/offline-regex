@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: rgb(25, 36, 54);
+}
+
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+::-webkit-scrollbar-button:single-button {
+  background-color: rgb(27, 35, 49);
+  height: 1px;
+  width: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(20, 29, 44);
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(20, 29, 44);
+}
+
+::-webkit-resizer {
+  background: rgb(20, 29, 44);
+}
