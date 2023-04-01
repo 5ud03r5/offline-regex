@@ -2,7 +2,7 @@
     <div class="flex relative flex-col w-1/3 px-4 py-2 min-h-[150px] m-2 space-y-2 rounded-md shadow-xl bg-slate-600">
         <div class="flex items-center">
             <label class="text-[25px] font-bold text-gray-300">{{ name }}</label>
-            <div
+            <div @click="$emit('getRegex', id)"
                 class="px-2 py-1 ml-auto font-bold text-gray-200 transition-all rounded-md hover:bg-gray-800 hover:text-gray-300 bg-slate-900 hover:cursor-pointer">
                 Try it</div>
         </div>
@@ -21,8 +21,10 @@ const props = defineProps({
     created: String,
     name: String,
     regex: String,
-    tags: Array
+    tags: Array,
+    id: String
 })
+const emit = defineEmits(['getRegex'])
 
 </script>
 <style scoped>
