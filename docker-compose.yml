@@ -1,0 +1,21 @@
+services:
+  backend:
+    build:
+      context: backend 
+    ports:
+      - 8000:8000
+    networks:
+      - public
+  frontend:
+    build:
+      context: frontend 
+    ports:
+      - 3000:3000
+    networks:
+      - public
+    depends_on:
+    - backend
+networks:
+    public:
+
+
