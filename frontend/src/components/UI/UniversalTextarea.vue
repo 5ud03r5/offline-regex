@@ -1,15 +1,17 @@
 <template>
-    <span contenteditable="true" :placeholder="placeholder" @input="updateText" autocorrect="off" autocomplete="off"
+    <span id="cnt" contenteditable="true" :placeholder="placeholder" @input="updateText" autocorrect="off"
+        autocomplete="off"
         class="bg-gray-900 min-h-[633px]  max-h-[633px] overflow-y-scroll break-all placeholder:break-all text-[20px] input text-gray-100 rounded-md transition-all outline-3 outline-purple-900 focus:bg-slate-800 resize-none px-2 py-4 m-2 ">
-        {{ value }}
+
     </span>
 </template>
 <script setup>
-import { ref, watchEffect } from 'vue';
+import { ref, watchEffect, onMounted } from 'vue';
 const emits = defineEmits(['update:text'])
 const props = defineProps({
     value: String
 })
+onMounted(() => document.getElementById('cnt').innerHTML = props.value)
 
 const placeholder = ref('Here goes your raw text...')
 const updateText = (e) => {
