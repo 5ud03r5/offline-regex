@@ -78,7 +78,7 @@ const setFilter = (item) => {
 
 watch(search, () => {
     if (search.value.length > 0) {
-        filteredRegex.value = data.value.filter(item => item.name.includes(search.value))
+        filteredRegex.value = data.value.filter(item => item.name.toLowerCase().includes(search.value.toLocaleLowerCase()))
     } else {
         filteredRegex.value = data.value
     }
