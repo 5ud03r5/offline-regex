@@ -6,11 +6,11 @@
         <div @click="$emit('hideModal')" class="absolute bg-gray-900/60 z-[500] w-full h-full top-0">
         </div>
         <div
-            class="fixed  z-[1000] rounded-md shadow-xl bg-slate-800 w-[400px] h-max inset-x-1/2 translate-x-[-50%] top-40">
+            class="fixed  z-[1000] rounded-md shadow-xl bg-slate-800 w-[550px] h-max inset-x-1/2 translate-x-[-50%] top-40">
             <UniversalButton @click="$emit('hideModal')" class="absolute right-0 p-1 ml-auto ">
                 <IconsClose />
             </UniversalButton>
-            <div class="w-full py-3 text-center bg-gray-500 rounded-t-md">
+            <div class="w-full py-3 text-center bg-gray-400 rounded-t-md">
                 <label class="text-[24px] text-gray-900 font-semibold ">Describe your regex</label>
 
             </div>
