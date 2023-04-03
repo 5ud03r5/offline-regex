@@ -7,7 +7,7 @@
                 Try it</div>
         </div>
 
-        <span class="p-4 italic text-gray-400 rounded-md bg-slate-700">{{ regex }}</span>
+        <span class="w-full p-4 italic text-gray-400 truncate rounded-md bg-slate-700 text-ellipsis">{{ regex }}</span>
         <div class="absolute flex space-x-2 right-2 bottom-1">
             <UniversalTag v-for="tag in tags" :key="tag.id" :tag="tag.name" class="ml-auto"></UniversalTag>
         </div>

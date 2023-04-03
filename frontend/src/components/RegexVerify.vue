@@ -6,10 +6,10 @@
             <label>Full match:</label>
             <div class="p-2 my-1 rounded-sm bg-slate-800">{{ match[0] }}</div>
             <label v-if="match.groups">Groups:</label>
-            <div v-if="match.groups" class="flex flex-wrap p-2 my-1 space-x-2 rounded-sm bg-slate-800">
-                <div v-for="group, gname, index in match.groups" class="flex space-x-1">
-                    <span v-if="index > 0">,</span>
-                    <div class="px-2 text-gray-700 bg-purple-400 rounded-sm">{{ gname }}:</div>
+            <div v-if="match.groups" class="flex flex-col flex-wrap p-2 my-1 rounded-sm bg-slate-800">
+                <div v-for="group, gname, index in match.groups" class="flex m-1 space-x-1">
+                    <div class="px-2 text-gray-700 bg-purple-400 rounded-sm">{{ gname }}</div>
+                    <div>:</div>
                     <div class="px-2 text-gray-700 bg-gray-200 rounded-sm">{{ group }}</div>
                 </div>
             </div>
